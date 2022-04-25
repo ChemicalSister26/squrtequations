@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from squrteq.views import index, AnswerAPIView
+
+
+
+from squrteq.views import AnswerAPIView, EnterYourNumbers
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('index/', index),
-    path('API/numberlist', AnswerAPIView.as_view())
+    path('admin/', admin.site.urls, name='admin'),
+    path('index/', EnterYourNumbers.as_view(), name='index'),
+    path('API/numberlist', AnswerAPIView.as_view(), name='data'),
 ]
