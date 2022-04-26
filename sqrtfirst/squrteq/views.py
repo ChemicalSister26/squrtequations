@@ -9,7 +9,7 @@ from squrteq.models import *
 # Create your views here.
 from squrteq.serializers import AnswerSerializer
 from squrteq.solvation import functionsqrt
-
+import sqlite3
 
 class AnswerAPIView(generics.ListCreateAPIView):
     queryset = Forsqrt.objects.all()
@@ -34,15 +34,18 @@ def EnterYourNumbers(request):
             # ...
             # redirect to a new URL:
             form.save()
-
-            return HttpResponseRedirect('/main')
-
-
+            return HttpResponseRedirect('/index')
     # if a GET (or any other method) we'll create a blank form
     else:
         form = EnterNumbersHere()
+    q = Forsqrt.objects.all()
+    q1 = q[len(q)-1].first_number
+    q2 = q[len(q) - 1].second_number
+    q3 = q[len(q) - 1].third_number
+    x = functionsqrt(q[len(q)-1].first_number, q[len(q)-1].second_number, q[len(q)-1].third_number)
 
-    return render(request, 'index.html', {'form': form, 'form1': form1})
+
+    return render(request, 'index.html', {'form': form, 'form1': form1, 'x': x, 'q1': q1, 'q2': q2, "q3": q3})
 
 
 
