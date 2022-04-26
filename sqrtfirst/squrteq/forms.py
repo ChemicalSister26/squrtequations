@@ -5,16 +5,15 @@ from squrteq.models import Forsqrt
 
 
 class EnterNumbersHere(forms.ModelForm):
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-
     class Meta:
         model = Forsqrt
         fields = ['first_number', 'second_number', 'third_number']
 
-    # first_number = forms.FloatField()
-    # second_number = forms.FloatField()
-    # third_number = forms.FloatField()
+class Answers(forms.ModelForm):
+    class Meta:
+        model = Forsqrt
+        fields = ['res_1', 'res_2', 'unsolvable']
+
 
 
 # class Addfeedback(forms.ModelForm):

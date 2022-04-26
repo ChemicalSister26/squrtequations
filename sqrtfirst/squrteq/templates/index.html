@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <form  method="post" >
 {% csrf_token %}
 
@@ -13,7 +14,18 @@
     <div class="form_error">{{ f.errors }}</div>
     {% endfor %}
 
+
 <button class='form_label' type="submit">Add</button>
+</form>
+
+<form  method="get" >
+{% csrf_token %}
+
+    {% for f in form1 %}
+    <p><label class="form_label" for="{{ f.id_for_label }}">{{ f.label }}:</label>{{ f }}</p>
+    <div class="form_error">{{ f.errors }}</div>
+    {% endfor %}
+
 </form>
 </body>
 </html>
