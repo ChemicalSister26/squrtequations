@@ -1,20 +1,20 @@
 from django import forms
-from django.urls import reverse_lazy
+
 
 from squrteq.models import Forsqrt
 
 
 class EnterNumbersHere(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
 
     class Meta:
         model = Forsqrt
         fields = ['first_number', 'second_number', 'third_number']
 
-    first_number = forms.FloatField()
-    second_number = forms.FloatField()
-    third_number = forms.FloatField()
+    # first_number = forms.FloatField()
+    # second_number = forms.FloatField()
+    # third_number = forms.FloatField()
 
 
 # class Addfeedback(forms.ModelForm):
